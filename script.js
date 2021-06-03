@@ -2,17 +2,18 @@
 // testing background
 document.querySelector("body").style.backgroundColor = "#cdecf1";
 
-const addPayerName = function () {
-    // .value
-    
-    
-    newPlayer.addEventListener("change", () => console.log(newPlayer.value) )
-    
-    return newPlayer.value
+const addNewItemToList = (newItem, allItemList) => {
+    let list = []
+    list.push(newItem.value)
+    list.forEach( item => 
+        allItemList.innerHTML 
+            += `
+            <li class="list-group-item">${item}</li>
+            `
+    )
 }
 
-
-const addNewPlayerInList = function ( ) {
+const addPlayerInList = function ( ) {
     const newPlayer = document.querySelector("#player")
     const allPlayersNameList = document.querySelector("#allPlayersNameList")
     const buttonAddPlayer = document.querySelector("#button-addPlayer")
@@ -23,6 +24,26 @@ const addNewPlayerInList = function ( ) {
             allPlayersNameList.innerHTML 
                 += `
                 <li class="list-group-item">${player}</li>
+                `
+        )
+    })
+
+}
+
+addPlayerInList()
+
+
+const addTeamInList = function ( ) {
+    const newTeam = document.querySelector("#team")
+    const allTeamsNameList = document.querySelector("#allTeamsNameList")
+    const buttonAddTeam = document.querySelector("#button-addTeam")
+    buttonAddTeam.addEventListener("click", () => {
+        let teamList = []
+        teamList.push(newTeam.value)
+        teamList.forEach( team => 
+            allTeamsNameList.innerHTML 
+                += `
+                <li class="list-group-item">${team}</li>
                 `
         )
     })
